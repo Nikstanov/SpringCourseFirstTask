@@ -3,6 +3,7 @@ package nikstanov.project.models;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.util.Date;
 
 @Entity
 @Table(name = "books")
@@ -13,12 +14,16 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(name = "getDate")
+    private Date getDate;
+
     public Person getOwner() {
         return owner;
     }
 
     public void setOwner(Person owner) {
         this.owner = owner;
+        this.getDate = new Date();
     }
 
     @ManyToOne
@@ -30,6 +35,13 @@ public class Book {
     @Column(name = "name")
     private String name;
 
+    private final static long TEN_DAYS_IN_MILLIS = 10L * 3600L * 24L * 1000L;
+    public boolean haveToReturned(){
+//        System.out.println(new Date().getTime());
+//        System.out.println(getDate.getTime());
+//        System.out.println((new Date().getTime() - getDate.getTime()) - 10 * 3600 * 24 );
+        return (new Date().getTime() - getDate.getTime()) >= TEN_DAYS_IN_MILLIS;
+    }
     public Book(){}
 
     public int getId() {
@@ -74,6 +86,7 @@ public class Book {
         this.name = name;
         this.author = author;
         this.year = year;
+        this.getDate = new Date();
     }
 
     @Column(name = "year")

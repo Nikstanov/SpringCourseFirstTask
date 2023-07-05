@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/books/search}">
+  <label for="name">Enter name: </label>
+  <input type="text" th:name = "name" id="name"/>
+  <br/>
+  <input type="submit" value="Search!"/>
+</form>
+<br/>
+<div th:if="${result != null}">
+    <p th:text="${result.get(0).toString()}"></p>
+    <p th:if = "${result.get(1) != null}" th:text="${result.get(1)}"></p>
+</div>
+</body>
+</html>

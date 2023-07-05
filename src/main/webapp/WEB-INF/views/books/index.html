@@ -10,6 +10,11 @@
     <a th:href="@{/books/{id}(id=${book.getId()})}"
        th:text="${book.getAuthor() + ',' + book.getName() + ',' + book.getYear()}">book</a>
 </div>
+<div th:if="${pageNumber < count}">
+    <br/>
+    <a th:if="${pageNumber} != 1" th:href="@{/books(page = ${pageNumber - 1}, forPage = ${forPage})}">Previous page</a>
+    <a th:if="${pageNumber < count}" th:href="@{/books(page = ${pageNumber + 1}, forPage = ${forPage})}">Next page</a>
+</div>
 
 <br/>
 <hr/>

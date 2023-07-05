@@ -13,7 +13,7 @@
     <maven.compiler.source>8</maven.compiler.source>
     <maven.compiler.target>8</maven.compiler.target>
 
-    <spring.version>5.2.19.RELEASE</spring.version>
+    <spring.version>5.3.5</spring.version>
   </properties>
 
   <dependencies>
@@ -95,7 +95,12 @@
       <version>${spring.version}</version>
     </dependency>
 
-
+    <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa -->
+    <dependency>
+      <groupId>org.springframework.data</groupId>
+      <artifactId>spring-data-jpa</artifactId>
+      <version>2.4.7</version>
+    </dependency>
   </dependencies>
   <build>
     <finalName>SpringCourseFirstTask</finalName>

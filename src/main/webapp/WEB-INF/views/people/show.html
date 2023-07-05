@@ -13,7 +13,8 @@
 <div th:if="${!books.isEmpty()}">
     <p>Books:</p>
     <div th:each="book : ${books}">
-        <p th:text="${book.getAuthor() + ', ' + book.getName() + ', ' + book.getYear()}">book</p>
+        <p th:if = "${!book.haveToReturned()}" th:text="${book.getAuthor() + ', ' + book.getName() + ', ' + book.getYear()}">book</p>
+        <p style="color: red" th:if = "${book.haveToReturned()}" th:text="${book.getAuthor() + ', ' + book.getName() + ', ' + book.getYear()}">book</p>
     </div>
 </div>
 <p th:if="${books.isEmpty()}">This person don't have any books</p>

@@ -6,8 +6,8 @@
 </head>
 <body>
 <h2>Welcome</h2>
-<a href="/people">People list</a>
+<a href="/people?page=1&forPage=5">People list</a>
 <br/>
-<a href="/books">Books list</a>
+<a href="/books?page=1&forPage=5">Books list</a>
 </body>
 </html>
